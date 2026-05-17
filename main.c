@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void exibirMenu();
+void consultarSaldo(float Saldo);
+float realizarDeposito(float saldo);
+float realizarSaque(float saldo);
+
 void exibirMenu() {
     printf("\n---------------------------------\n");
     printf("   Caixa Eletronico do Biason \n");
@@ -11,74 +16,90 @@ void exibirMenu() {
     printf("3 - Realizar um Deposito\n");
     printf("4 - Sair\n");
     printf("---------------------------------\n");
-
 }
 
-
-
-
 int main() {
-
     int opcao;
-    do {
-        system("cls");
-        exibirMenu();
-        scanf("%d", &opcao);
-        while (getchar() != '\n');
+    float saldo = 0.0; 
 
-        if (opcao < 1 || opcao > 4) {
-            printf("Opcao Invalida! Pressione Enter para tentar novamente...");
-            getchar();
+    do {
+        system("cls"); 
+        exibirMenu();
+        printf("Opcao: ");
+        scanf("%d", &opcao);
+        while (getchar() != '\n'); 
+
+        switch(opcao) {
+            case 1:
+                consultarSaldo(saldo);
+                break;
+            case 2:
+                saldo = realizarSaque(saldo);
+                break;
+            case 3:
+                saldo = realizarDeposito(saldo);
+                break;
+            case 4:
+                printf("\nObrigado por usar nosso ATM! Atenciosamente, Banco Biason!!\n");
+                break;
+            default:
+                // Se for qualquer outro número, não faz nada e o do-while reinicia a tela direto
+                break;
         }
 
     } while (opcao != 4);
-    printf("Obrigado por usar nosso ATM! Atenciosamente, Banco Biason!!\n");
-    return 0;
 
-    system("cls");
-    printf("Saldo: R$ %.2f\n", saldo);
-     printf("\nPressione Enter para continuar...");
-    setbuf(stdin, NULL);
-    getchar();
+    return 0;
 }
 
+
 void consultarSaldo(float Saldo) {
-printf("\n--- Saldo atual ---\n");
-printf("R$ %.2f\n", Saldo);
-printf("-------------------\n");
-system("pause");
+    system("cls");
+    printf("\n--- Saldo atual ---\n");
+    printf("R$ %.2f\n", Saldo);
+    printf("-------------------\n");
+    printf("\nPressione Enter para continuar...");
+    getchar(); 
 }
 
 float realizarDeposito(float saldo) {
-float valor;
-printf("Digite o valor do deposito: ");
-scanf("%f", &valor);
-if (valor > 0) {
-saldo += valor;
-printf("Deposito realizado!\n");
-} else {
-printf("Valor invalido!\n");
-}
-return saldo;
+    system("cls");
+    float valor;
+    printf("--- Deposito ---\n");
+    printf("Digite o valor do deposito: R$ ");
+    scanf("%f", &valor);
+    while (getchar() != '\n'); 
 
-int main() {
-    int opcao;
-
-switch(opcao) {
-case 1:
-consultarSaldo(saldo);
-break;
-case 2:
-saldo = realizarSaque(saldo);
-break;
-case 3:
-saldo = realizarDeposito(saldo);
-break;
-case 0:
-printf("Saindo...\n");
-break;
-}
-}
+    if (valor > 0) {
+        saldo += valor;
+        printf("\nDeposito realizado com sucesso!\n");
+    } else {
+        printf("\nValor invalido!\n");
+    }
+    
+    printf("\nPressione Enter para continuar...");
+    getchar();
+    return saldo;
 }
 
+float realizarSaque(float saldo) {
+    system("cls");
+    float valor;
+    printf("--- Saque ---\n");
+    printf("Digite o valor do saque: R$ ");
+    scanf("%f", &valor);
+    while (getchar() != '\n'); 
 
+    if (valor > 0 && valor <= saldo) {
+        saldo -= valor;
+        printf("\nSaque realizado com sucesso!\n");
+    } else if (valor > saldo) {
+        printf("\nSaldo insuficiente para realizar o saque!\n");
+    } else {
+        printf("\nValor invalido!\n");
+    }
+
+    printf("\nPressione Enter para continuar...");
+    getchar();
+    return saldo;
+}
