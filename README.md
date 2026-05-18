@@ -1,5 +1,5 @@
-# Checkpoint-03---Data-Structures
-# Nome do projeto: Banco Biason
+# Checkpoint-03-Data-Structures
+## Nome do projeto: Banco Biason
 
 # Integrantes:
 Vitor Nascimento - RM: 571873
@@ -18,12 +18,12 @@ Nickollas Korner - RM: 569655
 Este projeto consiste em um caixa eletrônico simples desenvolvido em linguagem C, executado no terminal. O sistema permite consultar saldo, realizar depósitos e efetuar saques de forma prática e organizada
 
 # Funcionalidades implementadas:
-Consulta de saldo
-Realização de depósitos
-Realização de saques
-Validação de entradas inválidas
-Menu interativo no terminal
-Compatibilidade com Windows e Linux
+- Consulta de saldo
+- Realização de depósitos
+- Realização de saques
+- Validação de entradas inválidas
+- Menu interativo no terminal
+- Compatibilidade com Windows e Linux
 
 # Instrucoes de compilacao
 Compilar: gcc main.c -o main
