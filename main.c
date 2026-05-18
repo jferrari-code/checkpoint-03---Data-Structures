@@ -7,15 +7,15 @@ float realizarDeposito(float saldo);
 float realizarSaque(float saldo);
 
 void exibirMenu() {
-    printf("\n---------------------------------\n");
-    printf("   Caixa Eletronico do Biason \n");
-    printf("---------------------------------\n");
-    printf("Digite a opcao desejada:\n");
-    printf("1 - Consultar seu Saldo\n");
-    printf("2 - Realizar um Saque\n");
-    printf("3 - Realizar um Deposito\n");
-    printf("4 - Sair\n");
-    printf("---------------------------------\n");
+    printf("\n=================================\n");
+    printf("   CAIXA ELETRONICO DO BIASON    \n");
+    printf("=================================\n");
+    printf(" Digite a opcao desejada:\n");
+    printf(" 1 - Consultar seu Saldo\n");
+    printf(" 2 - Realizar um Saque\n");
+    printf(" 3 - Realizar um Deposito\n");
+    printf(" 4 - Sair\n");
+    printf("=================================\n");
 }
 
 int main() {
@@ -43,7 +43,6 @@ int main() {
                 printf("\nObrigado por usar nosso ATM! Atenciosamente, Banco Biason!!\n");
                 break;
             default:
-                // Se for qualquer outro número, não faz nada e o do-while reinicia a tela direto
                 break;
         }
 
@@ -55,9 +54,9 @@ int main() {
 
 void consultarSaldo(float Saldo) {
     system("cls");
-    printf("\n--- Saldo atual ---\n");
-    printf("R$ %.2f\n", Saldo);
-    printf("-------------------\n");
+    printf("\n========= [ SALDO ATUAL ] =========\n");
+    printf(" R$ %.2f\n", Saldo);
+    printf("===================================\n");
     printf("\nPressione Enter para continuar...");
     getchar(); 
 }
@@ -65,10 +64,10 @@ void consultarSaldo(float Saldo) {
 float realizarDeposito(float saldo) {
     system("cls");
     float valor;
-    printf("--- Deposito ---\n");
+    printf("========= [ DEPOSITO ] =========\n");
     printf("Digite o valor do deposito: R$ ");
     scanf("%f", &valor);
-    while (getchar() != '\n'); 
+    while (getchar() != '\n');
 
     if (valor > 0) {
         saldo += valor;
@@ -85,7 +84,7 @@ float realizarDeposito(float saldo) {
 float realizarSaque(float saldo) {
     system("cls");
     float valor;
-    printf("--- Saque ---\n");
+    printf("========= [ SAQUE ] =========\n");
     printf("Digite o valor do saque: R$ ");
     scanf("%f", &valor);
     while (getchar() != '\n'); 
