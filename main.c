@@ -7,12 +7,8 @@
     #define LIMPAR_TELA "clear"
 #endif
 
-void exibirMenu();
-void consultarSaldo(float saldo);
 float realizarDeposito(float saldo);
 float realizarSaque(float saldo);
-void pausarTela();
-void limparBuffer();
 
 void exibirMenu() {
     printf("\n===================================\n");
@@ -33,49 +29,6 @@ void limparBuffer() {
 void pausarTela() {
     printf("\nPressione Enter para continuar...");
     getchar();
-}
-
-int main() {
-    int opcao;
-    float saldo = 0.0;
-
-    do {
-        system(LIMPAR_TELA);
-        exibirMenu();
-
-        printf("Opcao: ");
-
-        if (scanf("%d", &opcao) != 1) {
-            limparBuffer();
-            printf("\nOpcao invalida! Digite apenas numeros.\n");
-            pausarTela();
-            continue;
-        }
-
-        limparBuffer();
-
-        switch (opcao) {
-            case 1:
-                consultarSaldo(saldo);
-                break;
-            case 2:
-                saldo = realizarSaque(saldo);
-                break;
-            case 3:
-                saldo = realizarDeposito(saldo);
-                break;
-            case 4:
-                printf("\nObrigado por usar nosso ATM! Atenciosamente, Banco Biason!!\n");
-                break;
-            default:
-                printf("\nOpcao invalida! Tente novamente.\n");
-                pausarTela();
-                break;
-        }
-
-    } while (opcao != 4);
-
-    return 0;
 }
 
 void consultarSaldo(float saldo) {
@@ -144,4 +97,47 @@ float realizarSaque(float saldo) {
 
     pausarTela();
     return saldo;
+}
+
+int main() {
+    int opcao;
+    float saldo = 0.0;
+
+    do {
+        system(LIMPAR_TELA);
+        exibirMenu();
+
+        printf("Opcao: ");
+
+        if (scanf("%d", &opcao) != 1) {
+            limparBuffer();
+            printf("\nOpcao invalida! Digite apenas numeros.\n");
+            pausarTela();
+            continue;
+        }
+
+        limparBuffer();
+
+        switch (opcao) {
+            case 1:
+                consultarSaldo(saldo);
+                break;
+            case 2:
+                saldo = realizarSaque(saldo);
+                break;
+            case 3:
+                saldo = realizarDeposito(saldo);
+                break;
+            case 4:
+                printf("\nObrigado por usar nosso ATM! Atenciosamente, Banco Biason!!\n");
+                break;
+            default:
+                printf("\nOpcao invalida! Tente novamente.\n");
+                pausarTela();
+                break;
+        }
+
+    } while (opcao != 4);
+
+    return 0;
 }
