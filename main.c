@@ -15,9 +15,9 @@ void pausarTela();
 void limparBuffer();
 
 void exibirMenu() {
-    printf("\n=================================\n");
-    printf("   CAIXA ELETRONICO DO BIASON    \n");
-    printf("=================================\n");
+    printf("\n===================================\n");
+    printf("   [ CAIXA ELETRONICO DO BIASON ]   \n");
+    printf("===================================\n");
     printf(" Digite a opcao desejada:\n");
     printf(" 1 - Consultar seu Saldo\n");
     printf(" 2 - Realizar um Saque\n");
